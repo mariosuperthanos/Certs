@@ -128,3 +128,14 @@ The outcome: If the signatures match, it returns OK. This proves the certificate
 openssl verify -CAfile ca.crt client.crt
 ```
 What it does: The same process, but this is what the server does to verify the client's certificate during a mutual TLS handshake. It ensures the client is legitimate.
+# TLS vs mTLS
+
+TLS (Transport Layer Security)
+ - Only the server presents a certificate to the client to prove its identity.
+ - The client verifies the server’s certificate against a trusted Certificate Authority (CA).
+This is one-way authentication (server authentication only).
+
+mTLS (Mutual TLS)
+ - Both server and client present certificates to each other.
+ - Each side verifies the other’s certificate against a trusted CA.
+This is two-way authentication (mutual authentication).
